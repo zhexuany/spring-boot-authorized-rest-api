@@ -1,0 +1,35 @@
+package edu.global.sgs.www.util;
+
+import edu.global.sgs.www.entity.User;
+import org.apache.shiro.crypto.RandomNumberGenerator;
+import org.apache.shiro.crypto.SecureRandomNumberGenerator;
+import org.apache.shiro.crypto.hash.SimpleHash;
+import org.apache.shiro.util.ByteSource;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+@Service
+public class PasswordHelper {
+
+    private final RandomNumberGenerator randomNumberGenerator = new SecureRandomNumberGenerator();
+
+    private int hashIterations = 1;
+
+    public void setHashIterations(int hashIterations) {
+        this.hashIterations = hashIterations;
+    }
+
+    public void encryptPassword(User user) {
+
+        user.setSalt(randomNumberGenerator.nextBytes().toHex());
+
+        String algorithmName = "md5";
+        String newPassword = new SimpleHash(
+                algorithmName,
+                user.getPassword(),
+                ByteSource.Util.bytes(user.getCredentialsSalt()),
+                hashIterations).toHex();
+
+        user.setPassword(newPassword);
+    }
+}
