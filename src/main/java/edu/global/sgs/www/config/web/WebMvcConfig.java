@@ -10,10 +10,10 @@ import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-//@Import(WebSecurityConfig.class)
-//@ComponentScan("edu.global.sgs.www")
+@ComponentScan("edu.global.sgs.www.config")
+@Import(WebSecurityConfig.class)
 @EnableWebMvc
-public class WebMvcConfig extends WebMvcConfigurerAdapter {
+public class WebMvcConfig extends WebMvcConfigurerAdapter{
 
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
