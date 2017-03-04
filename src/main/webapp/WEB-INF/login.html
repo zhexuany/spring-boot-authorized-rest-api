@@ -41,6 +41,7 @@
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
                                 <input type="submit" value="登录" class="btn btn-primary form-control">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </fieldset>
                         </form>
                     </div>
