@@ -1,6 +1,7 @@
-package edu.global.sgs.www.config.web;
+package edu.global.sgs.config;
 
 
+import edu.global.sgs.security.WebSecurityConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +11,6 @@ import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan("edu.global.sgs.www.config")
 @Import(WebSecurityConfig.class)
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter{

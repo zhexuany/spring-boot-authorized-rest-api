@@ -1,6 +1,5 @@
-package edu.global.sgs.www.config;
+package edu.global.sgs.security;
 
-import edu.global.sgs.www.config.web.WebSecurityConfig;
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 
 public class SecurityInitializer extends AbstractSecurityWebApplicationInitializer {

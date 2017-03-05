@@ -1,4 +1,4 @@
-package edu.global.sgs.www.config;
+package edu.global.sgs.config;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.cloud.Cloud;

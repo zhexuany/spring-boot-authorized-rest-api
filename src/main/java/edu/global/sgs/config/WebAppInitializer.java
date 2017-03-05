@@ -1,6 +1,5 @@
-package edu.global.sgs.www.config;
+package edu.global.sgs.config;
 
-import edu.global.sgs.www.config.web.WebMvcConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

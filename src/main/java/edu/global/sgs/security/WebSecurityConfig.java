@@ -1,4 +1,4 @@
-package edu.global.sgs.www.config.web;
+package edu.global.sgs.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
