@@ -1,4 +1,4 @@
-package edu.global.sgs.security;
+package edu.global.sgs.config.security;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

@@ -9,7 +9,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     }
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] {SpringApplicationContextInitializer.class};
+        return null;
     }
     @Override
     protected String[] getServletMappings() {
