@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.context.annotation.Role;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -21,9 +23,9 @@ public class Admin {
 
     private @Id @GeneratedValue Long id;
 
-    private String name;
+    private @NotEmpty String name;
 
-    private @JsonIgnore String password;
+    private @JsonIgnore @NotEmpty String password;
 
     private String[] roles;
 
