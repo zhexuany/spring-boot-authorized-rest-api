@@ -1,7 +1,7 @@
-package edu.global.sgs.hander;
+package edu.global.sgs.api.hander;
 
-import edu.global.sgs.domain.College;
-import edu.global.sgs.domain.Course;
+import edu.global.sgs.api.domain.College;
+import edu.global.sgs.api.domain.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
 import org.springframework.data.rest.core.annotation.HandleAfterDelete;
@@ -10,8 +10,6 @@ import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
-
-import static edu.global.sgs.hander.WebSocketBrokerConfig.MESSAGE_PREFIX;
 
 @Component
 @RepositoryEventHandler(College.class)
@@ -29,19 +27,19 @@ public class CollegeEventHandler {
     @HandleAfterCreate
     public void newCourse(Course Course) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/newCourse", getPath(Course));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/newCourse", getPath(Course));
     }
 
     @HandleAfterDelete
     public void deleteCourse(Course Course) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/deleteCourse", getPath(Course));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/deleteCourse", getPath(Course));
     }
 
     @HandleAfterSave
     public void updateCourse(Course Course) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/updateCourse", getPath(Course));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/updateCourse", getPath(Course));
     }
 
     /**

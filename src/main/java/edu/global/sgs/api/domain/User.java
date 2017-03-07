@@ -1,4 +1,4 @@
-package edu.global.sgs.domain;
+package edu.global.sgs.api.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;

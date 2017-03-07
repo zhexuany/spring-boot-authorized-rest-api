@@ -1,4 +1,4 @@
-package edu.global.sgs.controller;
+package edu.global.sgs.api.controller;
 
 
 import org.springframework.stereotype.Controller;

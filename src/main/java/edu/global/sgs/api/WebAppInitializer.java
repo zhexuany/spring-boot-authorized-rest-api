@@ -1,9 +1,7 @@
-package edu.global.sgs;
+package edu.global.sgs.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.hateoas.config.EnableEntityLinks;
 
 @SpringBootApplication
 public class WebAppInitializer {

@@ -1,10 +1,8 @@
-package edu.global.sgs.config.security;
+package edu.global.sgs.api.config.security;
 
-import edu.global.sgs.config.data.SpringDataJpaUserDetailsService;
-import edu.global.sgs.domain.Admin;
-import org.apache.catalina.Manager;
+import edu.global.sgs.api.config.data.SpringDataJpaUserDetailsService;
+import edu.global.sgs.api.domain.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SpringBootWebSecurityConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

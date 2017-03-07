@@ -1,12 +1,11 @@
-package edu.global.sgs.hander;
+package edu.global.sgs.api.hander;
 
-import edu.global.sgs.domain.Admin;
-import edu.global.sgs.domain.User;
-import edu.global.sgs.repository.AdminRepository;
+import edu.global.sgs.api.domain.User;
+import edu.global.sgs.api.domain.Admin;
+import edu.global.sgs.api.repository.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.rest.core.annotation.HandleBeforeCreate;
-import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 

@@ -1,9 +1,9 @@
-package edu.global.sgs.config.data;
+package edu.global.sgs.api.config.data;
 
-import edu.global.sgs.domain.Admin;
-import edu.global.sgs.domain.User;
-import edu.global.sgs.repository.AdminRepository;
-import edu.global.sgs.repository.UserRepository;
+import edu.global.sgs.api.domain.User;
+import edu.global.sgs.api.repository.AdminRepository;
+import edu.global.sgs.api.repository.UserRepository;
+import edu.global.sgs.api.domain.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

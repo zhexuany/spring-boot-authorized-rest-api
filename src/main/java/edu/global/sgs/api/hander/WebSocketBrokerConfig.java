@@ -1,4 +1,4 @@
-package edu.global.sgs.hander;
+package edu.global.sgs.api.hander;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.annotation.RepositoryEventHandler;

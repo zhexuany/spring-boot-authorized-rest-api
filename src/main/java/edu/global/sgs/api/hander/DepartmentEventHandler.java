@@ -1,6 +1,6 @@
-package edu.global.sgs.hander;
+package edu.global.sgs.api.hander;
 
-import edu.global.sgs.domain.Department;
+import edu.global.sgs.api.domain.Department;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
 import org.springframework.data.rest.core.annotation.HandleAfterDelete;
@@ -9,8 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
-
-import static edu.global.sgs.hander.WebSocketBrokerConfig.MESSAGE_PREFIX;
 
 @Component
 @RepositoryEventHandler(Department.class)
@@ -29,19 +27,19 @@ public class DepartmentEventHandler {
     @HandleAfterCreate
     public void newDepartment(Department Department) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/newDepartment", getPath(Department));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/newDepartment", getPath(Department));
     }
 
     @HandleAfterDelete
     public void deleteDepartment(Department Department) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/deleteDepartment", getPath(Department));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/deleteDepartment", getPath(Department));
     }
 
     @HandleAfterSave
     public void updateDepartment(Department Department) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/updateDepartment", getPath(Department));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/updateDepartment", getPath(Department));
     }
 
     /**

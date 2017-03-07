@@ -1,6 +1,6 @@
-package edu.global.sgs.hander;
+package edu.global.sgs.api.hander;
 
-import edu.global.sgs.domain.Admin;
+import edu.global.sgs.api.domain.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
 import org.springframework.data.rest.core.annotation.HandleAfterDelete;
@@ -9,8 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryEventHandler;
 import org.springframework.hateoas.EntityLinks;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
-
-import static edu.global.sgs.hander.WebSocketBrokerConfig.MESSAGE_PREFIX;
 
 @Component
 @RepositoryEventHandler(Admin.class)
@@ -28,19 +26,19 @@ public class AdminEventHandler {
     @HandleAfterCreate
     public void newAdmin(Admin admin) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/newAdmin", getPath(admin));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/newAdmin", getPath(admin));
     }
 
     @HandleAfterDelete
     public void deleteAdmin(Admin admin) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/deleteAdmin", getPath(admin));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/deleteAdmin", getPath(admin));
     }
 
     @HandleAfterSave
     public void updateAdmin(Admin admin) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/updateAdmin", getPath(admin));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/updateAdmin", getPath(admin));
     }
 
     /**

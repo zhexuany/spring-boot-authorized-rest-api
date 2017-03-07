@@ -1,6 +1,6 @@
-package edu.global.sgs.repository;
+package edu.global.sgs.api.repository;
 
-import edu.global.sgs.domain.Department;
+import edu.global.sgs.api.domain.Department;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.access.prepost.PreAuthorize;

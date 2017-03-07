@@ -1,6 +1,6 @@
-package edu.global.sgs.repository;
+package edu.global.sgs.api.repository;
 
-import edu.global.sgs.domain.Admin;
+import edu.global.sgs.api.domain.Admin;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

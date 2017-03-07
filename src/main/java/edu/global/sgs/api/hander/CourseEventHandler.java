@@ -1,6 +1,6 @@
-package edu.global.sgs.hander;
+package edu.global.sgs.api.hander;
 
-import edu.global.sgs.domain.User;
+import edu.global.sgs.api.domain.Course;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.HandleAfterCreate;
 import org.springframework.data.rest.core.annotation.HandleAfterDelete;
@@ -10,47 +10,45 @@ import org.springframework.hateoas.EntityLinks;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
 
-import static edu.global.sgs.hander.WebSocketBrokerConfig.MESSAGE_PREFIX;
-
 @Component
-@RepositoryEventHandler(User.class)
-public class UserEventHandler {
+@RepositoryEventHandler(Course.class)
+public class CourseEventHandler {
+    
     private final SimpMessagingTemplate websocket;
 
     private final EntityLinks entityLinks;
 
     @Autowired
-    public UserEventHandler(SimpMessagingTemplate websocket, EntityLinks entityLinks) {
+    public CourseEventHandler(SimpMessagingTemplate websocket, EntityLinks entityLinks) {
         this.websocket = websocket;
         this.entityLinks = entityLinks;
     }
 
     @HandleAfterCreate
-    public void newUser(User user) {
+    public void newCourse(Course Course) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/newUser", getPath(user));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/newCourse", getPath(Course));
     }
 
     @HandleAfterDelete
-    public void deleteUser(User user) {
+    public void deleteCourse(Course Course) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/deleteUser", getPath(user));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/deleteCourse", getPath(Course));
     }
 
     @HandleAfterSave
-    public void updateUser(User user) {
+    public void updateCourse(Course Course) {
         this.websocket.convertAndSend(
-                MESSAGE_PREFIX + "/updateUser", getPath(user));
+                WebSocketBrokerConfig.MESSAGE_PREFIX + "/updateCourse", getPath(Course));
     }
 
     /**
-     * Take an {@link User} and get the URI using Spring Data REST's {@link EntityLinks}.
+     * Take an {@link Course} and get the URI using Spring Data REST's {@link EntityLinks}.
      *
-     * @param user
+     * @param Course
      */
-    private String getPath(User user) {
-        return this.entityLinks.linkForSingleResource(user.getClass(),
-                user.getId()).toUri().getPath();
+    private String getPath(Course Course) {
+        return this.entityLinks.linkForSingleResource(Course.getClass(),
+                Course.getId()).toUri().getPath();
     }
-
 }
