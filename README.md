@@ -58,3 +58,11 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 {"access_token":"47e4e8dc-7306-4e85-bbc4-0e50c32aaa83","token_type":"bearer","refresh_token":"fc6fae08-9927-459e-898e-071d946486b1","expires_in":43199,"scope":"read write"}
 ~~~
 
+## Improve the security
+If you do not want to expose client id and client secret ouside production enviorment. You can get help from `nginx`.  The following `nginx` will automatically add client id and 
+client secret in your request.
+~~~
+location ~ ^/oauth/v2/token$ {
+      try_files $uri /$app$is_args$args&client_id=CLIENTID&client_secret=CLIENTSECRET;
+}
+~~~
